@@ -1,0 +1,77 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --licht-rood: rgb(221, 50, 48);
+    --background-blauw: rgb(209, 232, 234);
+}
+
+
+.dashboard {
+    background-color: var(--background-blauw);
+    padding: 1em;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr min-content;
+    gap: 1em;
+    grid-template-areas:
+        "details1 uitgaven uitgaven uitgaven micro1 micro1"
+        "details2 uitgaven uitgaven uitgaven micro1 micro1"
+        "details3 uitgaven uitgaven uitgaven inhoud inhoud"
+        "micro2 micro2 micro3 micro3 inhoud inhoud"
+        "slider slider slider slider slider slider";
+}
+
+section>section {
+    background-color: #fff;
+    ;
+    display: grid;
+    place-items: center;
+}
+
+.dashboard h2 {
+    color: var(--licht-rood);
+}
+
+.info-container1 {
+    grid-area: details1
+}
+
+.info-container2 {
+    grid-area: details2
+}
+
+.info-container3 {
+    grid-area: details3
+}
+
+.uitgaven-container {
+    grid-area: uitgaven;
+}
+
+.micro-targetting-data-container {
+    grid-area: micro1;
+}
+
+.micro-details1-container {
+    grid-area: micro2
+}
+
+.micro-details2-container {
+    grid-area: micro3
+}
+
+.inhoud-advertenties-container {
+    grid-area: inhoud;
+}
+
+.slider {
+    grid-area: slider;
+    height: 3em;
+}
