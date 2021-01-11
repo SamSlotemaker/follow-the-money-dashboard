@@ -8,70 +8,186 @@
 :root {
     --licht-rood: rgb(221, 50, 48);
     --background-blauw: rgb(209, 232, 234);
+    --groen: #3AB179;
+    --licht-blauw: #C4D6D7;
+    --grijs: #666666;
 }
-
 
 .dashboard {
-    background-color: var(--background-blauw);
-    padding: 1em;
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr 1fr 1fr 1fr min-content;
-    gap: 1em;
-    grid-template-areas:
-        "details1 uitgaven uitgaven uitgaven micro1 micro1"
-        "details2 uitgaven uitgaven uitgaven micro1 micro1"
-        "details3 uitgaven uitgaven uitgaven inhoud inhoud"
-        "micro2 micro2 micro3 micro3 inhoud inhoud"
-        "slider slider slider slider slider slider";
+    grid-template-columns: 1fr;
 }
 
+.dashboard section {
+    min-height: 50vh;
+}
+
+.bar-chart rect:nth-of-type(1) {
+    fill: var(--groen)
+}
+
+.bar-chart rect:nth-of-type(2) {
+    fill: var(--licht-rood)
+}
+
+
 section>section {
+    text-align: center;
     background-color: #fff;
-    ;
+    padding: .5em;
     display: grid;
     place-items: center;
+}
+
+section>section>strong {
+    font-size: 2em;
 }
 
 .dashboard h2 {
     color: var(--licht-rood);
 }
 
-.info-container1 {
-    grid-area: details1
+
+
+/* LINE CHART */
+.lineChartGroup path {
+    fill: none;
+    stroke: black;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
 }
 
-.info-container2 {
-    grid-area: details2
+.bubble-chart circle:nth-of-type(1) {
+    fill: var(--groen);
 }
 
-.info-container3 {
-    grid-area: details3
+.bubble-chart circle:nth-of-type(2) {
+    fill: var(--licht-rood);
 }
 
-.uitgaven-container {
-    grid-area: uitgaven;
+.bubble-chart circle:nth-of-type(3) {
+    fill: var(--licht-blauw);
 }
 
-.micro-targetting-data-container {
-    grid-area: micro1;
-}
+@media screen and (min-width: 500px) {
 
-.micro-details1-container {
-    grid-area: micro2
-}
+    .dashboard {
+        background-color: var(--background-blauw);
+        padding: 1em;
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 1fr min-content;
+        gap: 1em;
+        grid-template-areas:
+            "details1 uitgaven uitgaven uitgaven micro1 micro1"
+            "details2 uitgaven uitgaven uitgaven micro1 micro1"
+            "details3 uitgaven uitgaven uitgaven inhoud inhoud"
+            "micro2 micro2 micro3 micro3 inhoud inhoud"
+            "slider slider slider slider slider slider";
+    }
 
-.micro-details2-container {
-    grid-area: micro3
-}
+    .dashboard section {
+        min-height: auto;
+    }
 
-.inhoud-advertenties-container {
-    grid-area: inhoud;
-}
+    .info-container1 {
+        grid-area: details1
+    }
 
-.slider {
-    grid-area: slider;
-    height: 3em;
+    .info-container2 {
+        grid-area: details2
+    }
+
+    .info-container3 {
+        grid-area: details3
+    }
+
+    .uitgaven-container {
+        grid-area: uitgaven;
+    }
+
+    .micro-targetting-data-container {
+        grid-area: micro1;
+    }
+
+    .micro-details1-container {
+        grid-area: micro2
+    }
+
+    .micro-details2-container {
+        grid-area: micro3
+    }
+
+    .inhoud-advertenties-container {
+        grid-area: inhoud;
+    }
+
+    .micro-details2-container>section {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .micro-details2-container>section div:first-of-type {
+        display: none;
+    }
+
+    .micro-details2-container>section div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: .5em;
+        margin-bottom: .5em;
+    }
+
+    .micro-details2-container>section div p {
+        text-align: center;
+        background-color: black;
+        color: white;
+        padding: .5em;
+
+    }
+
+    .micro-details2-container>section div strong {
+        text-align: center;
+    }
+
+
+
+
+    .slider-container {
+        grid-area: slider;
+        height: 3em;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        /* Override default CSS styles */
+        appearance: none;
+        outline: none;
+        height: 8px;
+        border-radius: 15px;
+        background-color: var(--licht-blauw);
+        width: 100%;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: var(--licht-rood);
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+
+        background: var(--licht-rood);
+        cursor: pointer;
+    }
 }

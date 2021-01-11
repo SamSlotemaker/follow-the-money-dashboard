@@ -1,3 +1,4 @@
+import React, { useState, useRef, useEffect } from 'react';
 import LineChartContainer from "./LineChartContainer";
 import InfoContainer1 from "./InfoContainer1";
 import InfoContainer2 from "./InfoContainer2";
@@ -8,10 +9,16 @@ import MicroDetails2 from "./MicroDetails2";
 import InhoudAdvertenties from "./InhoudAdvertenties";
 import Slider from "./Slider";
 
+
 function App() {
+
+
+  const [datum, setDatum] = useState(null);
+
+
   return (
     <section className="dashboard">
-      <InfoContainer1 />
+      <InfoContainer1 datum={datum} />
       <InfoContainer2 />
       <InfoContainer3 />
       <LineChartContainer />
@@ -19,7 +26,7 @@ function App() {
       <MicroDetails1 />
       <MicroDetails2 />
       <InhoudAdvertenties />
-      <Slider />
+      <Slider datum={datum} setDatum={setDatum} />
     </section>
   )
 }
