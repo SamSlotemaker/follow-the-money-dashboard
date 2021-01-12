@@ -24,6 +24,17 @@ export default function MicroDetails1({ partijen, setPartijenState }) {
 
     function handleHideOne() {
         console.log(hideOneForm.current.value)
+        const nieuweLijst = uitsluitenPartij(partijen)
+        setPartijenState(nieuweLijst)
+        setShowAll(true)
+
+        function uitsluitenPartij(partijen) {
+            return partijen.map(partij => {
+                if (partij != hideOneForm.current.value) {
+                    return partij
+                }
+            })
+        }
     }
 
     function handleShowAll() {
@@ -36,7 +47,7 @@ export default function MicroDetails1({ partijen, setPartijenState }) {
         }
     }
     return (
-        <section ref={container} className="micro-details1-container">
+        <section ref={container} className="filter-container">
             <h2>Filteropties</h2>
             <form action="">
                 <div>
@@ -57,7 +68,11 @@ export default function MicroDetails1({ partijen, setPartijenState }) {
                 </div>
                 <div>
                     <label htmlFor="alle-partijen-tonen">Alle partijen tonen</label>
-                    <input ref={checkbox} type="checkbox" checked={showAll} id="alle-partijen-tonen" onChange={handleShowAll} />
+                    <label htmlFor="alle-partijen-tonen" className="switch">
+                        <input ref={checkbox} type="checkbox" checked={showAll} id="alle-partijen-tonen" onChange={handleShowAll} />
+                        <span class="slider round"></span>
+                    </label>
+
                 </div>
             </form>
             {/* {width > 0 && <UitgavenBarChart width={width} height={height} />} */}

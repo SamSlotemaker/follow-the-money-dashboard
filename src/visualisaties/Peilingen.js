@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { peilingData } from '../peiling_data.js'
+import { partijKleuren } from '../partijInformatie.js'
 // const peilingData = require('../peiling_data.js')
 // import 
 const d3 = require('d3');
@@ -25,7 +26,7 @@ export default function Peilingen() {
     return (
         <section>
             {Object.entries(newObject).map(([key, value]) => {
-                return <div className="peiling-data"><p>{key}</p><strong>{(value * 100).toFixed(2)}%</strong></div>
+                return <div className="peiling-data"><p style={{ backgroundColor: partijKleuren[key] }}>{key}</p><strong>{(value * 100).toFixed(2)}%</strong></div>
 
             })}
         </section>

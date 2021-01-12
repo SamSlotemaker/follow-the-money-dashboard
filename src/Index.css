@@ -124,7 +124,7 @@ section>section>strong {
         grid-area: micro1;
     }
 
-    .micro-details1-container {
+    .filter-container {
         grid-area: micro2
     }
 
@@ -134,6 +134,90 @@ section>section>strong {
 
     .inhoud-advertenties-container {
         grid-area: inhoud;
+    }
+
+    .filter-container form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-container form div {
+        margin: 0em 1em 1em 1em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filter-container form div:last-of-type {
+        flex-direction: row;
+        align-items: center;
+        grid-column: span 2;
+    }
+
+    .filter-container form div:last-of-type label:nth-of-type(2) {
+        margin-left: 1em;
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--grijs);
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: var(--licht-rood);
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: var(--background-blauw);
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px var(--grijs);
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
     }
 
     .micro-details2-container>section {
@@ -146,6 +230,9 @@ section>section>strong {
     }
 
     .micro-details2-container>section div {
+        font-size: .9em;
+        font-weight: bold;
+        letter-spacing: .1em;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -157,7 +244,7 @@ section>section>strong {
         text-align: center;
         background-color: black;
         color: white;
-        padding: .5em;
+        padding: .3em.5em;
 
     }
 
@@ -173,7 +260,7 @@ section>section>strong {
         height: 3em;
     }
 
-    .slider {
+    .slider-years {
         -webkit-appearance: none;
         /* Override default CSS styles */
         appearance: none;
@@ -184,7 +271,7 @@ section>section>strong {
         width: 100%;
     }
 
-    .slider::-webkit-slider-thumb {
+    .slider-years::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
         width: 25px;
@@ -194,7 +281,7 @@ section>section>strong {
         cursor: pointer;
     }
 
-    .slider::-moz-range-thumb {
+    .slider-years::-moz-range-thumb {
         width: 25px;
         height: 25px;
         border-radius: 50%;
