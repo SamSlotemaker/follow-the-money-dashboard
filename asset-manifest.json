@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/follow-the-money-dashboard/static/css/main.7ff1d045.chunk.css",
+    "main.js": "/follow-the-money-dashboard/static/js/main.03add3fa.chunk.js",
+    "main.js.map": "/follow-the-money-dashboard/static/js/main.03add3fa.chunk.js.map",
+    "runtime-main.js": "/follow-the-money-dashboard/static/js/runtime-main.a275da2f.js",
+    "runtime-main.js.map": "/follow-the-money-dashboard/static/js/runtime-main.a275da2f.js.map",
+    "static/css/2.a4e45bde.chunk.css": "/follow-the-money-dashboard/static/css/2.a4e45bde.chunk.css",
+    "static/js/2.5138148b.chunk.js": "/follow-the-money-dashboard/static/js/2.5138148b.chunk.js",
+    "static/js/2.5138148b.chunk.js.map": "/follow-the-money-dashboard/static/js/2.5138148b.chunk.js.map",
+    "index.html": "/follow-the-money-dashboard/index.html",
+    "static/css/2.a4e45bde.chunk.css.map": "/follow-the-money-dashboard/static/css/2.a4e45bde.chunk.css.map",
+    "static/css/main.7ff1d045.chunk.css.map": "/follow-the-money-dashboard/static/css/main.7ff1d045.chunk.css.map",
+    "static/js/2.5138148b.chunk.js.LICENSE.txt": "/follow-the-money-dashboard/static/js/2.5138148b.chunk.js.LICENSE.txt",
+    "static/media/dag_data.d271c2ca.csv": "/follow-the-money-dashboard/static/media/dag_data.d271c2ca.csv"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a275da2f.js",
+    "static/css/2.a4e45bde.chunk.css",
+    "static/js/2.5138148b.chunk.js",
+    "static/css/main.7ff1d045.chunk.css",
+    "static/js/main.03add3fa.chunk.js"
+  ]
+}
