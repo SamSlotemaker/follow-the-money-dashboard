@@ -57,6 +57,18 @@ section>section>strong {
     stroke-linecap: round;
 }
 
+.axis-bottom .tick {
+    display: none;
+}
+
+.axis-bottom .tick:first-of-type {
+    display: block;
+}
+
+.axis-bottom .tick:last-of-type {
+    display: block;
+}
+
 .bubble-chart circle:nth-of-type(1) {
     fill: var(--groen);
 }

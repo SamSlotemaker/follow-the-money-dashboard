@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import dagCSV from '../../dag_data.csv'
-import { csv, scaleLinear, scaleTime, timeFormat, extent, line, curveNatural } from 'd3';
+import { csv, scaleLinear, scaleTime, timeFormat, extent, line, curveNatural, format } from 'd3';
 
 
 const xAxisLabelOffset = 50;
@@ -19,10 +19,11 @@ export default function LineChart({ width, height }) {
         const [partijData, setPartijData] = useState(null)
         useEffect(() => {
             const row = d => {
-                d.temperature = +d.temperature;
-                d.timestamp = new Date(d.timestamp);
+                d.spend_google_cum = +d.spend_google_cum
+                d.timestamp = new Date(d.datum)
                 return d;
             };
+
             csv(csvUrl, row).then(setData);
             csv(dagCSV, row).then(data => {
                 const newArray = data.filter(item => {
@@ -34,7 +35,7 @@ export default function LineChart({ width, height }) {
             })
         }, []);
 
-        return data;
+        return partijData;
     };
     const data = useData();
 
@@ -61,19 +62,19 @@ export default function LineChart({ width, height }) {
                     .x(d => xScale(xValue(d)))
                     .y(d => yScale(yValue(d))).curve(curveNatural)(data)
                 } />
-            {
-                // // CIRCLES
-                // data.map(d => (
-                //     <circle
-                //         className="mark"
-                //         cx={xScale(xValue(d))}
-                //         cy={yScale(yValue(d))}
-                //         r={circleRadius}
-                //     >
-                //         <title>{tooltipFormat(xValue(d))}</title>
-                //     </circle>
-                // ))
-            }
+            {/* {
+                // CIRCLES
+                data.map(d => (
+                    <circle
+                        className="mark"
+                        cx={xScale(xValue(d))}
+                        cy={yScale(yValue(d))}
+                        r={circleRadius}
+                    >
+                        <title>{tooltipFormat(xValue(d))}</title>
+                    </circle>
+                ))
+            } */}
         </g>;
 
 
@@ -95,6 +96,7 @@ export default function LineChart({ width, height }) {
         xScale.ticks().map(tickValue => (
             <g
                 className="tick"
+
                 key={tickValue}
                 transform={`translate(${xScale(tickValue)},0)`}
             >
@@ -107,12 +109,13 @@ export default function LineChart({ width, height }) {
 
 
     const xValue = d => d.timestamp;
-    const xAxisLabel = 'Time';
+    const xAxisLabel = 'Datum';
 
-    const yValue = d => d.temperature;
-    const yAxisLabel = 'Temperature';
+    const yValue = d => d.spend_google_cum;
+    const yAxisLabel = 'Kosten';
 
-    const xAxisTickFormat = timeFormat('%d %b');
+    const xAxisTickFormat = timeFormat('%x');
+    const yAxisTickFormat = format('s')
 
     const xScale = scaleTime()
         .domain(extent(data, xValue))
@@ -124,24 +127,31 @@ export default function LineChart({ width, height }) {
         .range([innerHeight, 0])
         .nice();
 
+
     return (
         <svg width={width} height={height}>
             <g transform={`translate(${margin.left},${margin.top})`}>
-                <AxisBottom
-                    xScale={xScale}
-                    innerHeight={innerHeight}
-                    tickFormat={xAxisTickFormat}
-                    tickOffset={5}
-                />
-                <text
-                    className="axis-label"
-                    textAnchor="middle"
-                    transform={`translate(${-yAxisLabelOffset},${innerHeight /
-                        2}) rotate(-90)`}
-                >
-                    {yAxisLabel}
-                </text>
-                <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={5} />
+                <g className={"axis-bottom"}>
+                    <AxisBottom
+                        xScale={xScale}
+                        innerHeight={innerHeight}
+                        tickFormat={xAxisTickFormat}
+                        tickOffset={5}
+                    />
+                    <text
+                        className="axis-label"
+                        textAnchor="middle"
+                        transform={`translate(${-yAxisLabelOffset},${innerHeight /
+                            2}) rotate(-90)`}
+                    >
+                        {yAxisLabel}
+                    </text>
+                </g>
+                <g className={'axis-left'}></g>
+                <AxisLeft
+                    yScale={yScale}
+                    innerWidth={innerWidth}
+                    tickFormat={yAxisTickFormat} />
                 <text
                     className="axis-label"
                     x={innerWidth / 2}
