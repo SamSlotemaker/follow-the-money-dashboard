@@ -17,7 +17,7 @@ export default function LineChartContainer() {
     return (
         <section ref={container} className="uitgaven-container">
 
-            <h2>LineChartContainer</h2>
+            <h2>Grafiek totalen uitgaven per week</h2>
             {width > 0 && <LineChart width={width} height={height} />}
         </section>
     )

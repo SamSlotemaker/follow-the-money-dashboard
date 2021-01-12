@@ -1,4 +1,8 @@
-const partijKleuren = {
+export const partijen = [
+  "VVD", 'PVV', 'CDA', 'D66', 'GroenLinks', 'SP', 'PvdA', 'ChristenUnie', 'PvdD', 'SGP', 'DENK', 'FvD', 'PvdT'
+]
+
+export const partijKleuren = {
   VVD: "#484d95",
   PVV: "#00b8ff",
   CDA: "#00914e",
@@ -12,6 +16,5 @@ const partijKleuren = {
   SGP: "#7f8084",
   DENK: "#00bec4",
   FvD: "#7a0000",
-  PVDT: "#f8ec00"
+  PvdT: "#f8ec00"
 }
-export default partijKleuren

@@ -16,7 +16,7 @@ export default function MicroDetails2() {
 
     return (
         <section ref={container} className="micro-details2-container">
-            <h2>MicroDetails2</h2>
+            <h2>Huidige peilingen</h2>
             {/* <BubbleChart width={width} height={height} /> */}
             <Peilingen />
         </section>

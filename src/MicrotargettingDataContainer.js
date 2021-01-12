@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import partijKleuren from './partijKleuren.js'
+import { partijKleuren } from './partijInformatie.js'
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
 import targetData from './fb_target.csv'
 const d3 = require('d3');
 // radar-chart van https://github.com/Spyna/react-svg-radar-chart
-console.log(partijKleuren)
+
 const captions = {
     // columns
     '13-17': '13-17',
@@ -17,22 +17,22 @@ const captions = {
     '65+': '65+'
 };
 
-const partijen = [
+// const partijen = [
+//     'D66',
+//     'FvD',
+//     'VVD',
+//     'PvdA'
+// ]
 
-    'FvD',
-    'D66',
-    'VVD',
-    'PvdA'
-]
 
-
-export default function MicrotargettingDataContainer() {
+export default function MicrotargettingDataContainer({ partijen }) {
 
     let container = useRef();
     let [data, setData] = useState([])
     let [width, setWidth] = useState(0);
     let [height, setHeight] = useState(0)
     let [chartSize, setChartSize] = useState(0)
+    console.log(partijen)
 
     useEffect(() => {
         setWidth(container.current.offsetWidth - container.current.offsetWidth / 10)
@@ -47,14 +47,11 @@ export default function MicrotargettingDataContainer() {
             })
             setData(partijObjectenArray)
 
-
             function createDataObject(partij) {
                 const filteredResultMan = filterData(result, partij, 'man')
                 const filteredResultVrouw = filterData(result, partij, 'vrouw')
                 const countedResultMan = transformData(filteredResultMan)
                 const countedResultVrouw = transformData(filteredResultVrouw)
-                console.log(countedResultMan)
-                console.log(countedResultVrouw)
                 const combinedResults = combine(countedResultMan, countedResultVrouw)
                 const dataObject =
                     { data: combinedResults, meta: { color: partijKleuren[partij] } }
@@ -63,11 +60,11 @@ export default function MicrotargettingDataContainer() {
             }
 
         })
-    }, [])
+    }, [partijen])
 
     return (
         <section ref={container} className="micro-targetting-data-container">
-            <h2>MicrotargettingDataContainer</h2>
+            <h2>Microtargeting per partij per leeftijdsgroep</h2>
             {data && <RadarChart
                 captions={captions}
                 data={data}
@@ -108,7 +105,7 @@ function transformData(array) {
 function combine(array1, array2) {
     const newObject = {}
     for (const key in array1) {
-        newObject[key] = (array1[key] + array2[key]) / 25
+        newObject[key] = (array1[key] + array2[key]) / 50
     }
     console.log(newObject)
     return newObject
