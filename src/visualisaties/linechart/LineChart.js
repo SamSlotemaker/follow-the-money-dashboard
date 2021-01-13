@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import dagCSV from '../../dag_data.csv'
+import partijKleuren from '../../partijInformatie.js'
 import { csv, scaleLinear, scaleTime, timeFormat, extent, line, curveNatural, format } from 'd3';
 
 

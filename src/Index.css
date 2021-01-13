@@ -49,9 +49,23 @@ section>section>strong {
 
 
 /* LINE CHART */
+.line-chart-legenda {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 1em;
+}
+
+.line-chart-legenda p {
+    padding: .3em .5em;
+    color: white;
+    font-size: .8em;
+    font-weight: bold;
+    letter-spacing: .1em;
+}
+
 .lineChartGroup path {
     fill: none;
-    stroke: black;
     stroke-width: 3px;
     stroke-linejoin: round;
     stroke-linecap: round;

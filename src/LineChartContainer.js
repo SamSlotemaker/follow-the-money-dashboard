@@ -1,7 +1,8 @@
 import { React, useRef, useEffect, useState } from 'react'
+import { partijKleuren } from './partijInformatie.js'
 import LineChart from './visualisaties/linechart/LineChart';
 
-export default function LineChartContainer() {
+export default function LineChartContainer({ partijen }) {
     let container = useRef();
     let [width, setWidth] = useState(0);
     let [height, setHeight] = useState(0)
@@ -16,8 +17,12 @@ export default function LineChartContainer() {
 
     return (
         <section ref={container} className="uitgaven-container">
-
             <h2>Grafiek totalen uitgaven per week</h2>
+            <div className="line-chart-legenda">
+                {partijen.map(partij => {
+                    return <p style={{ backgroundColor: partijKleuren[partij] }}>{partij}</p>
+                })}
+            </div>
             {width > 0 && <LineChart width={width} height={height} />}
         </section>
     )
