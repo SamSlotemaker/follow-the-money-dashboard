@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import LineChartContainer from "./LineChartContainer";
 import InfoContainer1 from "./InfoContainer1";
 import InfoContainer2 from "./InfoContainer2";
@@ -22,7 +22,7 @@ function App() {
       <InfoContainer1 datum={datum} />
       <InfoContainer2 />
       <InfoContainer3 />
-      <LineChartContainer partijen={partijenState} />
+      <LineChartContainer partijen={partijenState} allePartijen={partijen} />
       <MicrotargettingDataContainer partijen={partijenState} />
       <Filtering partijen={partijen} setPartijenState={setPartijenState} />
       <MicroDetails2 />

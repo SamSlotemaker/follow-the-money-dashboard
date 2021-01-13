@@ -30,12 +30,11 @@
 }
 
 
-section>section {
+body>div>section>section {
     text-align: center;
     background-color: #fff;
     padding: .5em;
-    display: grid;
-    place-items: center;
+    box-shadow: 10px 10px 19px -15px rgba(0, 72, 85, 0.4);
 }
 
 section>section>strong {
@@ -44,19 +43,28 @@ section>section>strong {
 
 .dashboard h2 {
     color: var(--licht-rood);
+    font-size: 1.1em;
+    text-align: left;
 }
 
+.info-container1 h2,
+.info-container2 h2,
+.info-container3 h2 {
+    text-align: center;
+}
 
 
 /* LINE CHART */
 .line-chart-legenda {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+
     width: 90%;
     margin: 1em;
 }
 
 .line-chart-legenda p {
+    margin: .5em;
     padding: .3em .5em;
     color: white;
     font-size: .8em;
@@ -64,11 +72,48 @@ section>section>strong {
     letter-spacing: .1em;
 }
 
+.line-label {
+    padding: .5em 1em;
+    background: white;
+    font-weight: bold;
+    letter-spacing: .1em;
+    position: relative;
+}
+
+.line-label::before {
+    content: 'hey';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    height: 1em;
+    width: 20px;
+}
+
+.axis-label {
+    fill: var(--licht-rood);
+    font-weight: bold;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
 .lineChartGroup path {
     fill: none;
     stroke-width: 3px;
     stroke-linejoin: round;
     stroke-linecap: round;
+    opacity: .6;
+}
+
+.lineChartGroup path:hover {
+    opacity: 1;
+}
+
+.tick line {
+    stroke: black;
+    opacity: .2;
 }
 
 /* .axis-bottom .tick {
@@ -156,9 +201,23 @@ section>section>strong {
     }
 
     .filter-container form div {
+        font-weight: bold;
+        text-align: left;
         margin: 0em 1em 1em 1em;
         display: flex;
         flex-direction: column;
+    }
+
+    .uitgaven-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chart-container {
+        display: block;
+        width: 100%;
+        height: 100%;
+        /* background-color: black; */
     }
 
     .filter-container form div:last-of-type {
@@ -234,16 +293,18 @@ section>section>strong {
         border-radius: 50%;
     }
 
-    .micro-details2-container>section {
+
+    .peiling-data--container {
+        margin-top: 1em;
         display: flex;
         flex-wrap: wrap;
     }
 
-    .micro-details2-container>section div:first-of-type {
+    .micro-details2-container>div div:first-of-type {
         display: none;
     }
 
-    .micro-details2-container>section div {
+    .micro-details2-container>div div {
         font-size: .9em;
         font-weight: bold;
         letter-spacing: .1em;
@@ -254,7 +315,7 @@ section>section>strong {
         margin-bottom: .5em;
     }
 
-    .micro-details2-container>section div p {
+    .micro-details2-container>div div p {
         text-align: center;
         background-color: black;
         color: white;
@@ -262,7 +323,7 @@ section>section>strong {
 
     }
 
-    .micro-details2-container>section div strong {
+    .micro-details2-container>div div strong {
         text-align: center;
     }
 

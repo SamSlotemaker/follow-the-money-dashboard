@@ -7,7 +7,6 @@ const d3 = require('d3');
 // radar-chart van https://github.com/Spyna/react-svg-radar-chart
 
 const captions = {
-    // columns
     '13-17': '13-17',
     '18-24': '18-24',
     '25-34': '25-34',
@@ -17,26 +16,15 @@ const captions = {
     '65+': '65+'
 };
 
-// const partijen = [
-//     'D66',
-//     'FvD',
-//     'VVD',
-//     'PvdA'
-// ]
 
 
 export default function MicrotargettingDataContainer({ partijen }) {
 
     let container = useRef();
     let [data, setData] = useState([])
-    let [width, setWidth] = useState(0);
-    let [height, setHeight] = useState(0)
     let [chartSize, setChartSize] = useState(0)
-    console.log(partijen)
 
     useEffect(() => {
-        setWidth(container.current.offsetWidth - container.current.offsetWidth / 10)
-        setHeight(container.current.offsetHeight - container.current.offsetHeight / 10)
         setChartSize((container.current.offsetWidth < container.current.offsetHeight) ? container.current.offsetWidth - 50 : container.current.offsetHeight - 50)
 
         d3.csv(targetData).then(result => {
@@ -65,10 +53,12 @@ export default function MicrotargettingDataContainer({ partijen }) {
     return (
         <section ref={container} className="micro-targetting-data-container">
             <h2>Microtargeting per partij per leeftijdsgroep</h2>
-            {data && <RadarChart
-                captions={captions}
-                data={data}
-                size={chartSize} />}
+            <div className="chart-container">
+                {data && <RadarChart
+                    captions={captions}
+                    data={data}
+                    size={chartSize} />}
+            </div>
         </section>
     )
 }
@@ -76,7 +66,7 @@ export default function MicrotargettingDataContainer({ partijen }) {
 
 function filterData(array, partij, column) {
     return array.filter(item => {
-        if (item.partij == partij && item.gender == column) {
+        if (item.partij === partij && item.gender === column) {
             item['percentage geslacht/leeftijd'] = parseFloat(item['percentage geslacht/leeftijd'].replace(',', '.'))
             return item
         }
@@ -95,7 +85,7 @@ function transformData(array) {
     }
 
     array.forEach(item => {
-        if (allAges[item.age] == 0) {
+        if (allAges[item.age] === 0) {
             allAges[item.age] += item['percentage geslacht/leeftijd']
         }
     })
@@ -107,6 +97,5 @@ function combine(array1, array2) {
     for (const key in array1) {
         newObject[key] = (array1[key] + array2[key]) / 50
     }
-    console.log(newObject)
     return newObject
 }

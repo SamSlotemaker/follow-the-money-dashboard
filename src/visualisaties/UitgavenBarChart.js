@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 const d3 = require('d3')
 
 const margin = {

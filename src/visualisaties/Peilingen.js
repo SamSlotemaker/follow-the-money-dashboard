@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { peilingData } from '../peiling_data.js'
 import { partijKleuren } from '../partijInformatie.js'
 // const peilingData = require('../peiling_data.js')
 // import 
-const d3 = require('d3');
+
 
 export default function Peilingen() {
     const [data, setData] = useState(null)
@@ -15,7 +15,6 @@ export default function Peilingen() {
     let newObject = {}
     if (data) {
         let row1 = data[0]
-        console.log(row1)
         for (const property in row1) {
             if (!property.includes('.')) {
                 newObject[property] = row1[property]
@@ -24,11 +23,11 @@ export default function Peilingen() {
     }
 
     return (
-        <section>
+        <div className="peiling-data--container">
             {Object.entries(newObject).map(([key, value]) => {
-                return <div className="peiling-data"><p style={{ backgroundColor: partijKleuren[key] }}>{key}</p><strong>{(value * 100).toFixed(2)}%</strong></div>
+                return <div key={key} className="peiling-data"><p style={{ backgroundColor: partijKleuren[key] }}>{key}</p><strong>{(value * 100).toFixed(2)}%</strong></div>
 
             })}
-        </section>
+        </div>
     )
 }

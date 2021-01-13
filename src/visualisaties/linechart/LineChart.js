@@ -1,14 +1,12 @@
 // Code van Curran Kelleher, van https://vizhub.com/curran/73bcdb68be6b4500b03827c9d58defba?edit=files&file=index.js&mode=mini
 
-import React, { useState, useCallback, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect, useRef } from 'react';
 import dagCSV from '../../dag_data.csv'
 import { partijKleuren } from '../../partijInformatie.js'
 import { csv, scaleLinear, scaleTime, timeFormat, extent, line, curveBasis, format } from 'd3';
 import * as d3 from 'd3'
-
-const xAxisLabelOffset = 50;
-const yAxisLabelOffset = 45;
+const xAxisLabelOffset = 0;
+const yAxisLabelOffset = 0;
 
 export default function LineChart({ width, height, partijen }) {
     const useData = () => {
@@ -21,11 +19,12 @@ export default function LineChart({ width, height, partijen }) {
 
             csv(dagCSV, row).then(data => {
                 const partijenArray = []
+
                 partijen.forEach((partij, index) => {
                     partijenArray.push([])
                     partijenArray[index].partij = partij
                     data.forEach(item => {
-                        if (item.partij == partij) {
+                        if (item.partij === partij) {
                             partijenArray[index].push({ datum: new Date(item.datum), spend_google_cum: item.spend_google_cum })
                         }
                     })
@@ -33,24 +32,21 @@ export default function LineChart({ width, height, partijen }) {
                 setPartijData(partijenArray)
             })
         }, [partijen]);
-
         return partijData;
     };
     const data = useData();
-    console.log(data)
     if (!data) {
         return <pre>Loading...</pre>;
     }
-    const margin = { top: 20, right: 60, bottom: 100, left: 90 };
+    const margin = { top: 40, right: 60, bottom: 100, left: 90 };
     const innerHeight = height - margin.top - margin.bottom;
     const innerWidth = width - margin.left - margin.right;
 
     const AxisLeft = ({ yScale, innerWidth, tickFormat, tickOffset = 3 }) =>
         yScale.ticks().map(tickValue => (
-            <g className="tick" transform={`translate(0,${yScale(tickValue)})`}>
+            <g key={tickValue} className="tick" transform={`translate(0,${yScale(tickValue)})`}>
                 <line x2={innerWidth} />
                 <text
-                    key={tickValue}
                     style={{ textAnchor: 'end' }}
                     x={-tickOffset}
                     dy=".32em"
@@ -63,7 +59,6 @@ export default function LineChart({ width, height, partijen }) {
         xScale.ticks(3).map(tickValue => (
             <g
                 className="tick"
-
                 key={tickValue}
                 transform={`translate(${xScale(tickValue)},0)`}
             >
@@ -79,15 +74,14 @@ export default function LineChart({ width, height, partijen }) {
     const xAxisLabel = 'Datum';
 
     const yValue = d => d.spend_google_cum;
-    const yAxisLabel = 'Kosten';
+    const yAxisLabel = 'Bedrag in €';
 
-    const xAxisTickFormat = timeFormat('%x');
+    const xAxisTickFormat = timeFormat('%b %Y');
     const yAxisTickFormat = format('.0s')
 
     const allData = data.reduce(
         (accumulator, partijTijds) => accumulator.concat(partijTijds)
         , [])
-    console.log(allData)
 
     const xScale = scaleTime()
         .domain(extent(allData, xValue))
@@ -100,7 +94,23 @@ export default function LineChart({ width, height, partijen }) {
         .nice();
     const lineGenerator = line()
         .x(d => xScale(xValue(d)))
-        .y(d => yScale(yValue(d), console.log(yValue(d)))).curve(curveBasis)
+        .y(d => yScale(yValue(d))).curve(curveBasis)
+
+    function handleMouseOver(e) {
+        console.log(e.target.innerHTML)
+        console.log(e)
+        const svg = d3.select('svg')
+        svg.append('text')
+            .attr('class', 'line-label')
+            .attr('id', 'id' + e.target.innerHTML)
+            .attr('x', e.nativeEvent.layerX + 10)
+            .attr('y', e.nativeEvent.layerY - 10)
+            .style('fill', partijKleuren[e.target.innerHTML])
+            .text(e.target.innerHTML)
+    }
+    function handleMouseOut(e) {
+        d3.select('#id' + e.target.innerHTML).remove()
+    }
 
     return (
         <svg width={width} height={height}>
@@ -114,36 +124,43 @@ export default function LineChart({ width, height, partijen }) {
                     />
                     <text
                         className="axis-label"
+                        x={innerWidth}
+                        y={innerHeight + xAxisLabelOffset}
+                        transform={`translate(-30, 55)`}
                         textAnchor="middle"
-                        transform={`translate(${-yAxisLabelOffset},${innerHeight /
-                            2}) rotate(-90)`}
+                    >
+                        {xAxisLabel}
+                    </text>
+                </g>
+                <g className={'axis-left'}>
+                    <AxisLeft
+                        yScale={yScale}
+                        innerWidth={innerWidth}
+                        tickFormat={yAxisTickFormat} />
+                    <text
+                        className="axis-label"
+                        textAnchor="middle"
+                        // transform={`translate(${-yAxisLabelOffset},${innerHeight /
+                        //     2}) rotate(-90)`}
+                        transform={`translate(70, -15)`}
                     >
                         {yAxisLabel}
                     </text>
                 </g>
-                <g className={'axis-left'}></g>
-                <AxisLeft
-                    yScale={yScale}
-                    innerWidth={innerWidth}
-                    tickFormat={yAxisTickFormat} />
-                <text
-                    className="axis-label"
-                    x={innerWidth / 2}
-                    y={innerHeight + xAxisLabelOffset}
-                    textAnchor="middle"
-                >
-                    {xAxisLabel}
-                </text>
+
                 <g className="lineChartGroup">
                     {data.map(partijTijds => {
                         return <path
+                            onMouseOver={handleMouseOver}
+                            onMouseOut={handleMouseOut}
+                            key={partijTijds.partij}
                             fill={partijKleuren[partijTijds.partij]}
                             stroke={partijKleuren[partijTijds.partij]}
                             d={lineGenerator(partijTijds)
-                            } />
+                            }>{partijTijds.partij}</path>
                     })}
                 </g>
             </g>
-        </svg>
+        </svg >
     );
 }

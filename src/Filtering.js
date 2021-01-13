@@ -1,21 +1,12 @@
-import { React, useRef, useEffect, useState } from 'react'
-import UitgavenBarChart from './visualisaties/UitgavenBarChart'
+import { React, useRef, useState } from 'react'
 
 
 export default function MicroDetails1({ partijen, setPartijenState }) {
     let container = useRef();
-    let [width, setWidth] = useState(0);
-    let [height, setHeight] = useState(0)
     let showOneForm = useRef()
     let hideOneForm = useRef()
     let checkbox = useRef()
     let [showAll, setShowAll] = useState(true)
-
-    useEffect(() => {
-        setWidth(container.current.offsetWidth - container.current.offsetWidth / 10)
-        setHeight(container.current.offsetHeight - container.current.offsetHeight / 10)
-        console.log(width, height)
-    }, [])
 
     function handleShowOne() {
         setPartijenState([showOneForm.current.value])
@@ -23,16 +14,13 @@ export default function MicroDetails1({ partijen, setPartijenState }) {
     }
 
     function handleHideOne() {
-        console.log(hideOneForm.current.value)
         const nieuweLijst = uitsluitenPartij(partijen)
         setPartijenState(nieuweLijst)
         setShowAll(true)
 
         function uitsluitenPartij(partijen) {
             return partijen.map(partij => {
-                if (partij != hideOneForm.current.value) {
-                    return partij
-                }
+                if (partij !== hideOneForm.current.value) return partij
             })
         }
     }
@@ -61,6 +49,7 @@ export default function MicroDetails1({ partijen, setPartijenState }) {
                 <div>
                     <label htmlFor="partij-uitsluiten">Een enkele partij uitsluiten</label>
                     <select name="partij-uitsluiten" id="partij-uitsluiten" ref={hideOneForm} onChange={handleHideOne}>
+                        <option value="geen">Geen</option>
                         {partijen.map(partij => {
                             return <option key={partij} value={partij}>{partij}</option>
                         })}
@@ -70,7 +59,7 @@ export default function MicroDetails1({ partijen, setPartijenState }) {
                     <label htmlFor="alle-partijen-tonen">Alle partijen tonen</label>
                     <label htmlFor="alle-partijen-tonen" className="switch">
                         <input ref={checkbox} type="checkbox" checked={showAll} id="alle-partijen-tonen" onChange={handleShowAll} />
-                        <span class="slider round"></span>
+                        <span className="slider round"></span>
                     </label>
 
                 </div>
