@@ -9,7 +9,7 @@ export default function LineChartContainer({ partijen }) {
 
     console.log(container)
     useEffect(() => {
-        setWidth(container.current.offsetWidth - container.current.offsetWidth / 10)
+        setWidth(container.current.offsetWidth)
         setHeight(container.current.offsetHeight - container.current.offsetHeight / 10)
         console.log(width, height)
     }, [])
@@ -23,7 +23,7 @@ export default function LineChartContainer({ partijen }) {
                     return <p style={{ backgroundColor: partijKleuren[partij] }}>{partij}</p>
                 })}
             </div>
-            {width > 0 && <LineChart width={width} height={height} />}
+            {width > 0 && <LineChart width={width} height={height} partijen={partijen} />}
         </section>
     )
 }

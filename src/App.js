@@ -22,7 +22,7 @@ function App() {
       <InfoContainer1 datum={datum} />
       <InfoContainer2 />
       <InfoContainer3 />
-      <LineChartContainer partijen={partijen} />
+      <LineChartContainer partijen={partijenState} />
       <MicrotargettingDataContainer partijen={partijenState} />
       <Filtering partijen={partijen} setPartijenState={setPartijenState} />
       <MicroDetails2 />

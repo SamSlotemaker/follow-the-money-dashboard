@@ -51,7 +51,7 @@ section>section>strong {
 /* LINE CHART */
 .line-chart-legenda {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 90%;
     margin: 1em;
 }
@@ -71,9 +71,9 @@ section>section>strong {
     stroke-linecap: round;
 }
 
-.axis-bottom .tick {
+/* .axis-bottom .tick {
     display: none;
-}
+} */
 
 .axis-bottom .tick:first-of-type {
     display: block;
