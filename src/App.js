@@ -16,11 +16,12 @@ function App() {
 
   const [datum, setDatum] = useState(null);
   const [partijenState, setPartijenState] = useState(partijen)
+  const [grootsteAdverteerder, setGrootsteAdverteerder] = useState(null)
 
   return (
     <section className="dashboard">
-      <InfoContainer1 datum={datum} />
-      <InfoContainer2 />
+      <InfoContainer1 datum={datum} partijen={partijenState} setGrootsteAdverteerder={setGrootsteAdverteerder} />
+      <InfoContainer2 grootsteAdverteerder={grootsteAdverteerder} />
       <InfoContainer3 />
       <LineChartContainer partijen={partijenState} allePartijen={partijen} />
       <MicrotargettingDataContainer partijen={partijenState} />

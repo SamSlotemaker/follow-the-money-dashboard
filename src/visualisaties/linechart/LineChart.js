@@ -97,8 +97,6 @@ export default function LineChart({ width, height, partijen }) {
         .y(d => yScale(yValue(d))).curve(curveBasis)
 
     function handleMouseOver(e) {
-        console.log(e.target.innerHTML)
-        console.log(e)
         const svg = d3.select('svg')
         svg.append('text')
             .attr('class', 'line-label')
