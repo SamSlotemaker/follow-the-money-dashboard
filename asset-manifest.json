@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/follow-the-money-dashboard/static/css/main.e4fa04f4.chunk.css",
-    "main.js": "/follow-the-money-dashboard/static/js/main.1e6e08fe.chunk.js",
-    "main.js.map": "/follow-the-money-dashboard/static/js/main.1e6e08fe.chunk.js.map",
+    "main.css": "/follow-the-money-dashboard/static/css/main.3a4067b9.chunk.css",
+    "main.js": "/follow-the-money-dashboard/static/js/main.87f9725a.chunk.js",
+    "main.js.map": "/follow-the-money-dashboard/static/js/main.87f9725a.chunk.js.map",
     "runtime-main.js": "/follow-the-money-dashboard/static/js/runtime-main.a275da2f.js",
     "runtime-main.js.map": "/follow-the-money-dashboard/static/js/runtime-main.a275da2f.js.map",
     "static/css/2.a4e45bde.chunk.css": "/follow-the-money-dashboard/static/css/2.a4e45bde.chunk.css",
-    "static/js/2.0a926422.chunk.js": "/follow-the-money-dashboard/static/js/2.0a926422.chunk.js",
-    "static/js/2.0a926422.chunk.js.map": "/follow-the-money-dashboard/static/js/2.0a926422.chunk.js.map",
+    "static/js/2.fd5fdabe.chunk.js": "/follow-the-money-dashboard/static/js/2.fd5fdabe.chunk.js",
+    "static/js/2.fd5fdabe.chunk.js.map": "/follow-the-money-dashboard/static/js/2.fd5fdabe.chunk.js.map",
     "index.html": "/follow-the-money-dashboard/index.html",
     "static/css/2.a4e45bde.chunk.css.map": "/follow-the-money-dashboard/static/css/2.a4e45bde.chunk.css.map",
-    "static/css/main.e4fa04f4.chunk.css.map": "/follow-the-money-dashboard/static/css/main.e4fa04f4.chunk.css.map",
-    "static/js/2.0a926422.chunk.js.LICENSE.txt": "/follow-the-money-dashboard/static/js/2.0a926422.chunk.js.LICENSE.txt",
+    "static/css/main.3a4067b9.chunk.css.map": "/follow-the-money-dashboard/static/css/main.3a4067b9.chunk.css.map",
+    "static/js/2.fd5fdabe.chunk.js.LICENSE.txt": "/follow-the-money-dashboard/static/js/2.fd5fdabe.chunk.js.LICENSE.txt",
     "static/media/dag_data.d271c2ca.csv": "/follow-the-money-dashboard/static/media/dag_data.d271c2ca.csv",
-    "static/media/fb_target.f88edf5f.csv": "/follow-the-money-dashboard/static/media/fb_target.f88edf5f.csv"
+    "static/media/fb_target.f88edf5f.csv": "/follow-the-money-dashboard/static/media/fb_target.f88edf5f.csv",
+    "static/media/line-chart.dfdd415d.png": "/follow-the-money-dashboard/static/media/line-chart.dfdd415d.png",
+    "static/media/wordcloud.86fb4249.png": "/follow-the-money-dashboard/static/media/wordcloud.86fb4249.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a275da2f.js",
     "static/css/2.a4e45bde.chunk.css",
-    "static/js/2.0a926422.chunk.js",
-    "static/css/main.e4fa04f4.chunk.css",
-    "static/js/main.1e6e08fe.chunk.js"
+    "static/js/2.fd5fdabe.chunk.js",
+    "static/css/main.3a4067b9.chunk.css",
+    "static/js/main.87f9725a.chunk.js"
   ]
 }
