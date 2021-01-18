@@ -7,6 +7,7 @@ import MicrotargettingDataContainer from "./MicrotargettingDataContainer";
 import Filtering from "./Filtering";
 import MicroDetails2 from "./MicroDetails2";
 import InhoudAdvertenties from "./InhoudAdvertenties";
+import Introduction from './Introduction'
 import Slider from "./Slider";
 import { partijen } from './partijInformatie.js'
 
@@ -20,17 +21,20 @@ function App() {
   const [bedragGrootsteAdverteerder, setBedragGrootsteAdverteerder] = useState(null)
 
   return (
-    <section className="dashboard">
-      <InfoContainer1 datum={datum} partijen={partijenState} setGrootsteAdverteerder={setGrootsteAdverteerder} setBedragGrootsteAdverteerder={setBedragGrootsteAdverteerder} />
-      <InfoContainer2 grootsteAdverteerder={grootsteAdverteerder} bedragGrootsteAdverteerder={bedragGrootsteAdverteerder} />
-      <InfoContainer3 />
-      <LineChartContainer partijen={partijenState} allePartijen={partijen} datum={datum} />
-      <MicrotargettingDataContainer partijen={partijenState} />
-      <Filtering partijen={partijen} setPartijenState={setPartijenState} />
-      <MicroDetails2 datum={datum} />
-      <InhoudAdvertenties />
-      <Slider datum={datum} setDatum={setDatum} />
-    </section>
+    <>
+      <Introduction />
+      <section className="dashboard hide">
+        <InfoContainer1 datum={datum} partijen={partijenState} setGrootsteAdverteerder={setGrootsteAdverteerder} setBedragGrootsteAdverteerder={setBedragGrootsteAdverteerder} />
+        <InfoContainer2 grootsteAdverteerder={grootsteAdverteerder} bedragGrootsteAdverteerder={bedragGrootsteAdverteerder} />
+        <InfoContainer3 />
+        <LineChartContainer partijen={partijenState} allePartijen={partijen} datum={datum} />
+        <MicrotargettingDataContainer partijen={partijenState} />
+        <Filtering partijen={partijen} setPartijenState={setPartijenState} />
+        <MicroDetails2 datum={datum} />
+        <InhoudAdvertenties />
+        <Slider datum={datum} setDatum={setDatum} />
+      </section>
+    </>
   )
 }
 
