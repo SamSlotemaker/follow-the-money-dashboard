@@ -3,9 +3,32 @@ import React, { useRef } from 'react';
 export default function Slider({ datum, setDatum }) {
 
     let slider = useRef()
+    let minDatum = '2020-9-1'
+    let maxDatum = '2021-1-20'
+    // let maxDatum = '2020-11-20'
 
     function handleSlider() {
-        setDatum(slider.current.value)
+        //voeg method toe aan Days om dagen op te tellen
+        Date.prototype.addDays = function (days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
+
+        const datum1 = new Date(minDatum)
+        const datum2 = new Date(maxDatum)
+
+        const diffTime = Math.abs(datum2 - datum1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        const aantalDagenOptellen = Math.floor(slider.current.value / 100 * diffDays);
+        const nieuweDatum = datum1.addDays(aantalDagenOptellen);
+
+        const nieuweDag = nieuweDatum.getDate()
+        const nieuweMaand = nieuweDatum.getMonth() + 1
+        const nieuwJaar = nieuweDatum.getFullYear()
+        const nieuweDatumFormatted = "" + nieuwJaar + '-' + nieuweMaand + '-' + nieuweDag;
+        setDatum(nieuweDatumFormatted)
     }
 
     return (
@@ -15,3 +38,5 @@ export default function Slider({ datum, setDatum }) {
         </section>
     )
 }
+
+

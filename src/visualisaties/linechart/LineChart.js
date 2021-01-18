@@ -8,7 +8,7 @@ import * as d3 from 'd3'
 const xAxisLabelOffset = 0;
 const yAxisLabelOffset = 0;
 
-export default function LineChart({ width, height, partijen }) {
+export default function LineChart({ width, height, partijen, datum }) {
     const useData = () => {
         const [partijData, setPartijData] = useState(null)
         useEffect(() => {
@@ -19,11 +19,18 @@ export default function LineChart({ width, height, partijen }) {
 
             csv(dagCSV, row).then(data => {
                 const partijenArray = []
+                const berekendeDatum = new Date(datum)
+                const gefilterdeData = data.filter(item => {
+                    //filter op datum
+                    if (new Date(item.datum) < berekendeDatum) {
+                        return item
+                    }
+                })
 
                 partijen.forEach((partij, index) => {
                     partijenArray.push([])
                     partijenArray[index].partij = partij
-                    data.forEach(item => {
+                    gefilterdeData.forEach(item => {
                         if (item.partij === partij) {
                             partijenArray[index].push({ datum: new Date(item.datum), spend_google_cum: item.spend_google_cum })
                         }
@@ -31,7 +38,7 @@ export default function LineChart({ width, height, partijen }) {
                 })
                 setPartijData(partijenArray)
             })
-        }, [partijen]);
+        }, [partijen, datum]);
         return partijData;
     };
     const data = useData();

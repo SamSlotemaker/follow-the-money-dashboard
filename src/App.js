@@ -14,19 +14,20 @@ import { partijen } from './partijInformatie.js'
 function App() {
 
 
-  const [datum, setDatum] = useState(null);
+  const [datum, setDatum] = useState('2020-10-10');
   const [partijenState, setPartijenState] = useState(partijen)
   const [grootsteAdverteerder, setGrootsteAdverteerder] = useState(null)
+  const [bedragGrootsteAdverteerder, setBedragGrootsteAdverteerder] = useState(null)
 
   return (
     <section className="dashboard">
-      <InfoContainer1 datum={datum} partijen={partijenState} setGrootsteAdverteerder={setGrootsteAdverteerder} />
-      <InfoContainer2 grootsteAdverteerder={grootsteAdverteerder} />
+      <InfoContainer1 datum={datum} partijen={partijenState} setGrootsteAdverteerder={setGrootsteAdverteerder} setBedragGrootsteAdverteerder={setBedragGrootsteAdverteerder} />
+      <InfoContainer2 grootsteAdverteerder={grootsteAdverteerder} bedragGrootsteAdverteerder={bedragGrootsteAdverteerder} />
       <InfoContainer3 />
-      <LineChartContainer partijen={partijenState} allePartijen={partijen} />
+      <LineChartContainer partijen={partijenState} allePartijen={partijen} datum={datum} />
       <MicrotargettingDataContainer partijen={partijenState} />
       <Filtering partijen={partijen} setPartijenState={setPartijenState} />
-      <MicroDetails2 />
+      <MicroDetails2 datum={datum} />
       <InhoudAdvertenties />
       <Slider datum={datum} setDatum={setDatum} />
     </section>

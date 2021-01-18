@@ -2,7 +2,7 @@ import { React, useRef, useEffect, useState } from 'react'
 import { partijKleuren } from './partijInformatie.js'
 import LineChart from './visualisaties/linechart/LineChart';
 
-export default function LineChartContainer({ partijen, allePartijen }) {
+export default function LineChartContainer({ partijen, allePartijen, datum }) {
     let container = useRef();
     let [width, setWidth] = useState(0);
     let [height, setHeight] = useState(0)
@@ -22,7 +22,7 @@ export default function LineChartContainer({ partijen, allePartijen }) {
                 })}
             </div>
             <div ref={container} className="chart-container">
-                {width > 0 && <LineChart width={width} height={height} partijen={partijen} />}
+                {width > 0 && <LineChart width={width} height={height} partijen={partijen} datum={datum} />}
 
             </div>
         </section>

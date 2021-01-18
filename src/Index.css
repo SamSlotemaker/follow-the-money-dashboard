@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,400&display=swap');
+
 * {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -52,6 +54,13 @@ section>section>strong {
 .info-container3 h2 {
     text-align: center;
 }
+
+.info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 
 
 /* LINE CHART */
@@ -195,7 +204,17 @@ section>section>strong {
         grid-area: inhoud;
     }
 
+    .filter-container {
+        background-color: var(--licht-rood);
+        color: white;
+    }
+
+    .filter-container h2 {
+        color: white;
+    }
+
     .filter-container form {
+        margin-top: 1em;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
@@ -333,6 +352,10 @@ section>section>strong {
     .slider-container {
         grid-area: slider;
         height: 3em;
+        color: white;
+        font-weight: bold;
+        letter-spacing: .1em;
+        background-color: var(--licht-rood);
     }
 
     .slider-years {
@@ -342,7 +365,7 @@ section>section>strong {
         outline: none;
         height: 8px;
         border-radius: 15px;
-        background-color: var(--licht-blauw);
+        background-color: white;
         width: 100%;
     }
 
@@ -352,7 +375,7 @@ section>section>strong {
         width: 25px;
         height: 25px;
         border-radius: 50%;
-        background: var(--licht-rood);
+        background: white;
         cursor: pointer;
     }
 
