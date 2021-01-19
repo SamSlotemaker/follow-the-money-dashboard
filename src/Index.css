@@ -13,11 +13,12 @@
     --groen: #3AB179;
     --licht-blauw: #C4D6D7;
     --grijs: #666666;
+    --donker-blauw: rgb(28, 108, 134)
 }
 
 .introduction {
     position: absolute;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: var(--background-blauw);
     padding: 3em;
@@ -25,7 +26,7 @@
 
 .introduction>section {
     padding: 2em;
-    margin: 3em auto;
+    margin: 0em auto 3em auto;
     max-width: 1000px;
 }
 
@@ -41,7 +42,7 @@
 
 .introduction>div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 2em;
 }
 
@@ -71,8 +72,7 @@
     background-color: #fff;
     color: var(--licht-rood);
     margin-top: 3em;
-    border-right: 2px solid var(--licht-rood);
-    border-bottom: 2px solid var(--licht-rood);
+    box-shadow: 10px 10px 19px -15px rgba(0, 72, 85, 0.4);
 }
 
 .introduction.hide {
@@ -89,9 +89,7 @@
     grid-template-columns: 1fr;
 }
 
-.dashboard section {
-    min-height: 50vh;
-}
+
 
 .bar-chart rect:nth-of-type(1) {
     fill: var(--groen)
@@ -132,6 +130,9 @@ section>section>strong {
 }
 
 
+.micro-details2-container>div div:first-of-type {
+    display: none;
+}
 
 /* LINE CHART */
 .line-chart-legenda {
@@ -231,7 +232,23 @@ section>section>strong {
     width: 100%
 }
 
-@media screen and (min-width: 500px) {
+.uitgaven-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* background-color: black; */
+}
+
+@media screen and (min-width: 1000px) {
+
+    .introduction>div {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 
     .dashboard {
         background-color: var(--background-blauw);
@@ -242,11 +259,18 @@ section>section>strong {
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 1fr 1fr 1fr 1fr min-content;
         gap: 1em;
-        grid-template-areas:
+        /* grid-template-areas:
             "details1 uitgaven uitgaven uitgaven micro1 micro1"
             "details2 uitgaven uitgaven uitgaven micro1 micro1"
             "details3 uitgaven uitgaven uitgaven inhoud inhoud"
             "micro2 micro2 micro3 micro3 inhoud inhoud"
+            "slider slider slider slider slider slider"; */
+
+        grid-template-areas:
+            "micro2 uitgaven uitgaven uitgaven micro1 micro1"
+            "details1 uitgaven uitgaven uitgaven micro1 micro1"
+            "details2 uitgaven uitgaven uitgaven inhoud inhoud"
+            "details3 micro3 micro3 micro3 inhoud inhoud"
             "slider slider slider slider slider slider";
     }
 
@@ -287,8 +311,26 @@ section>section>strong {
     }
 
     .filter-container {
-        background-color: var(--licht-rood);
+        background-color: var(--donker-blauw);
         color: white;
+        position: relative;
+    }
+
+    /* pijltje */
+    .filter-container::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        left: 0;
+        top: 100%;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid var(--donker-blauw);
+        transform-origin: left top;
+        transform: translateX(28px) rotate(135deg);
+        /* background-color: var(--donker-blauw); */
+        position: absolute;
     }
 
     .filter-container h2 {
@@ -302,24 +344,15 @@ section>section>strong {
     }
 
     .filter-container form div {
-        font-weight: bold;
+        /* font-weight: bold; */
+        font-size: .8em;
         text-align: left;
         margin: 0em 1em 1em 1em;
         display: flex;
         flex-direction: column;
     }
 
-    .uitgaven-container {
-        display: flex;
-        flex-direction: column;
-    }
 
-    .chart-container {
-        display: block;
-        width: 100%;
-        height: 100%;
-        /* background-color: black; */
-    }
 
     .filter-container form div:last-of-type {
         flex-direction: row;
@@ -401,9 +434,6 @@ section>section>strong {
         flex-wrap: wrap;
     }
 
-    .micro-details2-container>div div:first-of-type {
-        display: none;
-    }
 
     .micro-details2-container>div div {
         font-size: .9em;
@@ -437,7 +467,7 @@ section>section>strong {
         color: white;
         font-weight: bold;
         letter-spacing: .1em;
-        background-color: var(--licht-rood);
+        background-color: var(--donker-blauw);
     }
 
     .slider-years {
@@ -454,9 +484,9 @@ section>section>strong {
     .slider-years::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 25px;
+        width: 70px;
         height: 25px;
-        border-radius: 50%;
+        border-radius: 5px;
         background: white;
         cursor: pointer;
     }
@@ -468,5 +498,104 @@ section>section>strong {
 
         background: var(--licht-rood);
         cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .introduction>div {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--background-blauw);
+        padding: 1em;
+    }
+
+    .filter-container {
+        order: -1;
+        color: white;
+        background-color: var(--donker-blauw);
+    }
+
+    .filter-container h2 {
+        color: white;
+    }
+
+    .filter-container h2 {
+        text-align: center;
+    }
+
+    .slider-container {
+        order: -2;
+        color: white;
+        background-color: var(--donker-blauw);
+    }
+
+    input[type="range"i] {
+        width: 100%;
+    }
+
+    form div {
+        margin-top: 1em;
+    }
+
+    form select {
+        display: block;
+        margin: .5em auto;
+
+    }
+
+    input[type="checkbox"] {
+        margin-left: 1em;
+    }
+
+    .dashboard section {
+        width: 100%;
+        margin: 1em 0em;
+    }
+
+    .uitgaven-container {
+        min-height: 100vh;
+    }
+
+    .uitgaven-container .chart-container {
+        min-height: 80vh;
+    }
+
+    .uitgaven-container .axis-bottom g {
+        opacity: 0;
+    }
+
+    .uitgaven-container .axis-bottom g:first-of-type {
+        opacity: 1;
+    }
+
+    .uitgaven-container .axis-bottom g:last-of-type {
+        opacity: 1;
+    }
+
+    .micro-targetting-data-container {
+        min-height: 50vh;
+        width: 100vw;
+    }
+
+    .peiling-data--container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .peiling-data--container div {
+        padding: 1em;
+    }
+
+    .peiling-data--container div p {
+        padding: .5em;
+        color: white;
+        font-size: .9em;
+        font-weight: bold;
+        letter-spacing: .1em;
     }
 }
