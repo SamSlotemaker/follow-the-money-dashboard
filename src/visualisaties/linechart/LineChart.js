@@ -83,8 +83,8 @@ export default function LineChart({ width, height, partijen, datum }) {
     const yValue = d => d.spend_google_cum;
     const yAxisLabel = 'Bedrag in €';
 
-    const xAxisTickFormat = timeFormat('%b %Y');
-    const yAxisTickFormat = format('.0s')
+    const xAxisTickFormat = timeFormat('%d %b %Y');
+    const yAxisTickFormat = format('.2s')
 
     const allData = data.reduce(
         (accumulator, partijTijds) => accumulator.concat(partijTijds)
