@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/follow-the-money-dashboard/static/css/main.beb0a9dc.chunk.css",
-    "main.js": "/follow-the-money-dashboard/static/js/main.a9e32ab3.chunk.js",
-    "main.js.map": "/follow-the-money-dashboard/static/js/main.a9e32ab3.chunk.js.map",
+    "main.js": "/follow-the-money-dashboard/static/js/main.4dee4cfb.chunk.js",
+    "main.js.map": "/follow-the-money-dashboard/static/js/main.4dee4cfb.chunk.js.map",
     "runtime-main.js": "/follow-the-money-dashboard/static/js/runtime-main.a275da2f.js",
     "runtime-main.js.map": "/follow-the-money-dashboard/static/js/runtime-main.a275da2f.js.map",
     "static/css/2.a4e45bde.chunk.css": "/follow-the-money-dashboard/static/css/2.a4e45bde.chunk.css",
@@ -17,7 +17,6 @@
     "static/media/foto_compare.ba387ffd.png": "/follow-the-money-dashboard/static/media/foto_compare.ba387ffd.png",
     "static/media/foto_filter.96e85142.png": "/follow-the-money-dashboard/static/media/foto_filter.96e85142.png",
     "static/media/foto_graphs.ff435cb0.png": "/follow-the-money-dashboard/static/media/foto_graphs.ff435cb0.png",
-    "static/media/line-chart.dfdd415d.png": "/follow-the-money-dashboard/static/media/line-chart.dfdd415d.png",
     "static/media/wordcloud.86fb4249.png": "/follow-the-money-dashboard/static/media/wordcloud.86fb4249.png"
   },
   "entrypoints": [
@@ -25,6 +24,6 @@
     "static/css/2.a4e45bde.chunk.css",
     "static/js/2.fd5fdabe.chunk.js",
     "static/css/main.beb0a9dc.chunk.css",
-    "static/js/main.a9e32ab3.chunk.js"
+    "static/js/main.4dee4cfb.chunk.js"
   ]
 }
