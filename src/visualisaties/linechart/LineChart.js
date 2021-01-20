@@ -83,7 +83,7 @@ export default function LineChart({ width, height, partijen, datum }) {
     const yValue = d => d.spend_google_cum;
     const yAxisLabel = 'Bedrag in €';
 
-    const xAxisTickFormat = timeFormat('%d %b %Y');
+    const xAxisTickFormat = timeFormat('%d-%m-%Y');
     const yAxisTickFormat = format('.2s')
 
     const allData = data.reduce(
