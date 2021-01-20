@@ -1,8 +1,8 @@
 // Code van Curran Kelleher, van https://vizhub.com/curran/73bcdb68be6b4500b03827c9d58defba?edit=files&file=index.js&mode=mini
 
 import React, { useState, useEffect, useRef } from 'react';
-import dagCSV from '../../dag_data.csv'
-import { partijKleuren } from '../../partijInformatie.js'
+import dagCSV from '../../data/dag_data.csv'
+import { partijKleuren } from '../../data/partijInformatie.js'
 import { csv, scaleLinear, scaleTime, timeFormat, extent, line, curveBasis, format } from 'd3';
 import * as d3 from 'd3'
 const xAxisLabelOffset = 0;

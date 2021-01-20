@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { csv } from 'd3'
-import dagCSV from './dag_data.csv'
+import dagCSV from '../data/dag_data.csv'
 
 export default function InfoContainer1({ datum, partijen, setGrootsteAdverteerder, setBedragGrootsteAdverteerder }) {
 

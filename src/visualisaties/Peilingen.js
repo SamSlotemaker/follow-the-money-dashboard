@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { peilingData } from '../peiling_data.js'
-import { partijKleuren } from '../partijInformatie.js'
-// const peilingData = require('../peiling_data.js')
-// import 
+import { peilingData } from '../data/peiling_data.js'
+import { partijKleuren } from '../data/partijInformatie.js'
+
 
 
 export default function Peilingen({ datum }) {

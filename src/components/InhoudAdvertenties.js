@@ -1,5 +1,5 @@
 import React from 'react'
-import wordcloud from './images/wordcloud.png'
+import wordcloud from '../images/wordcloud.png'
 export default function InhoudAdvertenties() {
     return (
         <section className="inhoud-advertenties-container">

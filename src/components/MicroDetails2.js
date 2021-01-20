@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Peilingen from './visualisaties/Peilingen';
+import Peilingen from '../visualisaties/Peilingen';
 
 export default function MicroDetails2({ datum }) {
     let container = useRef();

@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-import LineChartContainer from "./LineChartContainer";
-import InfoContainer1 from "./InfoContainer1";
-import InfoContainer2 from "./InfoContainer2";
-import InfoContainer3 from "./InfoContainer3";
-import MicrotargettingDataContainer from "./MicrotargettingDataContainer";
-import Filtering from "./Filtering";
-import MicroDetails2 from "./MicroDetails2";
-import InhoudAdvertenties from "./InhoudAdvertenties";
-import Introduction from './Introduction'
-import Slider from "./Slider";
-import { partijen } from './partijInformatie.js'
+import LineChartContainer from "./components/LineChartContainer";
+import InfoContainer1 from "./components/InfoContainer1";
+import InfoContainer2 from "./components/InfoContainer2";
+import InfoContainer3 from "./components/InfoContainer3";
+import MicrotargettingDataContainer from "./components/MicrotargettingDataContainer";
+import Filtering from "./components/Filtering";
+import MicroDetails2 from "./components/MicroDetails2";
+import InhoudAdvertenties from "./components/InhoudAdvertenties";
+import Introduction from './components/Introduction'
+import Slider from "./components/Slider";
+import { partijen } from './data/partijInformatie.js'
 
 
 function App() {
-
-
   const [datum, setDatum] = useState('2020-10-10');
   const [partijenState, setPartijenState] = useState(partijen)
   const [grootsteAdverteerder, setGrootsteAdverteerder] = useState(null)

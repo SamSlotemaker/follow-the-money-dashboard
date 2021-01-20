@@ -1,6 +1,6 @@
 import { React, useRef, useEffect, useState } from 'react'
-import { partijKleuren } from './partijInformatie.js'
-import LineChart from './visualisaties/linechart/LineChart';
+import { partijKleuren } from '../data/partijInformatie.js'
+import LineChart from '../visualisaties/linechart/LineChart';
 
 export default function LineChartContainer({ partijen, allePartijen, datum }) {
     let container = useRef();

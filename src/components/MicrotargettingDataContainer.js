@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { partijKleuren } from './partijInformatie.js'
+import { partijKleuren } from '../data/partijInformatie.js'
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
-import targetData from './fb_target.csv'
+import targetData from '../data/fb_target.csv'
 const d3 = require('d3');
 // radar-chart van https://github.com/Spyna/react-svg-radar-chart
 

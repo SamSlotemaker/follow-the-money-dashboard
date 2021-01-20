@@ -128,12 +128,8 @@ meta: {color: "#484d95", partij: "VVD"}]
 partij: 'vvd'}
 ```
 
-Het gedetailleerde proces vind je in mijn wiki
-https://github.com/SamSlotemaker/frontend-data/wiki/Data-transformation
-
-### Lege waardes
-Bij lege of invalide waarde in de coordinaten/plaatsnaam wordt het object volledig genegeerd. Ik kan in mijn geval niks met een onbekende plek. 
-Lege/invalide waardes bij groei, vermogen of uurprijs worden op 0 gezet. Op deze manier kunnen er alsnog andere vergelijkingen gedaan worden. Ook kunnen lege waardes bij groei en uurprijs betekenen dat er daadwerkelijk geen groei is of het parkeren gratis is. 
+### Lege of invalide waardes
+Invalide waardes worden niet meegenomen in het dashboard. Lege waardes worden niet meegenomen of op 0 gezet wanneer dit zou passen in de context (bijvoorbeeld het datum voor en na lege waarde == 0)
 
 ## :gear: Installation
 1. Clone deze repository

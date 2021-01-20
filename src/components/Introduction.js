@@ -1,8 +1,7 @@
 import React from 'react'
-import lineChartImage from './images/line-chart.png'
-import fotoCompare from './images/foto_compare.png'
-import fotoFilter from './images/foto_filter.png'
-import fotoGraphs from './images/foto_graphs.png'
+import fotoCompare from '../images/foto_compare.png'
+import fotoFilter from '../images/foto_filter.png'
+import fotoGraphs from '../images/foto_graphs.png'
 
 export default function Introduction() {
 
