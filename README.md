@@ -4,7 +4,7 @@
 ## :grey_question: Beschrijving
 In deze repo vind je de code van ons project Information Design aan de hogeschool van Amsterdam
 
-### :red_car:  Opdracht 
+### :rocket:  Opdracht 
 De opdracht is het maken van een dashboard vorm voor Follow the money, die advertentie data vertoont op een duidelijk en informatieve manier, hierin moet het volgende verwerkt zijn: 
 - Advertentie uitgaven
 - Inhoud advertenties
@@ -12,8 +12,29 @@ De opdracht is het maken van een dashboard vorm voor Follow the money, die adver
 
 
 ## :pencil: Concept 
-
 Een dashboard dat inzicht toont in politieke advertenties, en vooral de verandering over tijd hiervan. De gebruiker kan zelf de tijdlijn vorm geven en kan hiermee ook het verloop in de peilingen zien, en verbanden leggen tussen uitgaven en hoe goed politieke partijen het op dat moment doen. 
+
+### Hoofdvraag
+Hoe kunnen we de verschillen in advertentie uitgaves van politieke partijen op een overzichtelijke
+manier weergeven in de aanleiding naar de verkiezingen?
+
+### Deelvragen
+1. Wat zijn de totale advertentie kosten van politieke partijen naar aanleiding van de
+verkiezingen?
+a. Totaal dashboard: google
+b. Dag dashboard: datum - spend_google_cum
+c. Week dashboard: datum – spend
+1.1. Grafiekvorm: Linechart (uitgaven over tijd)
+2. Welke partijen maken het sterkst gebruik van micro-targeting en op wat voor manier doen zij
+dit?
+a. Fb target dashboard: alle kolommen
+2.1. Grafiekvorm: Bar chart – Top 5 – Pie chart – Radar diagriam
+3. Welke demografische groepen worden er het sterkst getarget?
+a. Fb target dashboard: alle kolommen
+3.1 Grafiekvorm: Bar chart – Top 5 – Radar diagram
+4. Op welke inhoud wordt het meest gefocust in de advertenties? (onderwerpen)
+a. Top ads dashboard, Advertentie inhoud.
+4.1. Grafiekvorm: Wordcloud
 
 ### Concept design
 ![designAf](https://user-images.githubusercontent.com/60625329/105186675-3fb12b00-5b32-11eb-91fe-f78b12625ef2.png)
