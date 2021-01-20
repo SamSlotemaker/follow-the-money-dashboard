@@ -27,7 +27,7 @@ export default function Introduction() {
                     <img src={lineChartImage} alt="" />
                 </section>
                 <section>
-                    <p>Zie het verschil over tijd door d eslider onderaan de pagina te gebruiken</p>
+                    <p>Zie het verschil over tijd door de slider onderaan de pagina te gebruiken</p>
                     <img src={lineChartImage} alt="" />
                 </section>
 

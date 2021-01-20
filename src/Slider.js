@@ -1,11 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 export default function Slider({ datum, setDatum }) {
 
     let slider = useRef()
     let minDatum = '2020-9-1'
     let maxDatum = '2021-1-20'
-    // let maxDatum = '2020-11-20'
+    const DATUM_KEY = 'SLIDER_DATUM_KEY'
+
+    //on page load
+    useEffect(() => {
+        slider.current.value = 100;
+        handleSlider()
+    }, [])
+
 
     function handleSlider() {
         //voeg method toe aan Days om dagen op te tellen
