@@ -1,5 +1,8 @@
 import React from 'react'
 import lineChartImage from './images/line-chart.png'
+import fotoCompare from './images/foto_compare.png'
+import fotoFilter from './images/foto_filter.png'
+import fotoGraphs from './images/foto_graphs.png'
 
 export default function Introduction() {
 
@@ -20,15 +23,15 @@ export default function Introduction() {
             <div>
                 <section>
                     <p>Filter op partijen om in detail op partijen in te zoomen</p>
-                    <img src={lineChartImage} alt="" />
+                    <img src={fotoFilter} alt="" />
                 </section>
                 <section>
                     <p>Zie in detail hoe de cijfers samenkomen</p>
-                    <img src={lineChartImage} alt="" />
+                    <img src={fotoGraphs} alt="" />
                 </section>
                 <section>
                     <p>Zie het verschil over tijd door de slider onderaan de pagina te gebruiken</p>
-                    <img src={lineChartImage} alt="" />
+                    <img src={fotoCompare} alt="" />
                 </section>
 
             </div>

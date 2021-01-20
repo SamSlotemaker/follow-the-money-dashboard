@@ -42,7 +42,7 @@ export default function MicrotargettingDataContainer({ partijen }) {
                 const countedResultVrouw = transformData(filteredResultVrouw)
                 const combinedResults = combine(countedResultMan, countedResultVrouw)
                 const dataObject =
-                    { data: combinedResults, meta: { color: partijKleuren[partij] } }
+                    { data: combinedResults, meta: { color: partijKleuren[partij], partij: partij } }
 
                 return dataObject
             }
